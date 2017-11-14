@@ -74,7 +74,6 @@
 
 					<execution>
 						<id>Frontend production build</id>
-						<phase>package</phase>
 						<goals>
 							<goal>npm</goal>
 						</goals>
@@ -103,10 +102,6 @@
 					</webResources>
 				</configuration>
 			</plugin>
-
-
-
-
 		</plugins>
 	</build>
 </project>
