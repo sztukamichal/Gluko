@@ -14,13 +14,13 @@ buildNumber.properties
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+src/main/app/node_modules
 
 # testing
 /coverage
 
 # production
-/build
+src/main/app/build
 
 # misc
 .DS_Store
