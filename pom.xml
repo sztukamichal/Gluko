@@ -6,16 +6,14 @@
 	<groupId>com.gluko</groupId>
 	<artifactId>gluko</artifactId>
 	<version>0.0.1</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>gluko</name>
-	<description></description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.8.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -39,29 +37,67 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>sqljdbc4</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/sqljdbc42.jar</systemPath>
+		</dependency>
+
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>ROOT</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
 				<version>1.2</version>
+				<configuration>
+					<installDirectory>target</installDirectory>
+				</configuration>
 				<executions>
 					<execution>
-						<id>Install Node and NPM</id>
+						<id>install node and npm</id>
 						<goals>
 							<goal>install-node-and-npm</goal>
 						</goals>
+						<configuration>
+							<nodeVersion>v7.2.0</nodeVersion>
+						</configuration>
 					</execution>
-
 					<execution>
 						<id>npm install</id>
 						<goals>
@@ -71,36 +107,13 @@
 							<arguments>install</arguments>
 						</configuration>
 					</execution>
-
 					<execution>
-						<id>Frontend production build</id>
+						<id>webpack build</id>
 						<goals>
-							<goal>npm</goal>
+							<goal>webpack</goal>
 						</goals>
-						<configuration>
-							<arguments>run build</arguments>
-						</configuration>
 					</execution>
 				</executions>
-				<configuration>
-					<nodeVersion>v7.2.0</nodeVersion>
-					<installDirectory>.mvn</installDirectory>
-					<workingDirectory>src/main/app</workingDirectory>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.2.0</version>
-				<configuration>
-					<webResources>
-						<resource>
-							<!-- this is relative to the pom.xml directory -->
-							<directory>src/main/app/build/</directory>
-						</resource>
-					</webResources>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
