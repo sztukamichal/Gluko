@@ -10,7 +10,8 @@ import javax.persistence.Id;
 @Entity
 public class Person {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
     private String firstName;
     private String lastName;

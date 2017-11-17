@@ -8,13 +8,13 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 @SpringBootApplication
 public class GlukoApplication extends SpringBootServletInitializer {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(GlukoApplication.class);
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(GlukoApplication.class);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(GlukoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GlukoApplication.class, args);
+    }
 
 }

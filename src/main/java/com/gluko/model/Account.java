@@ -1,7 +1,6 @@
 package com.gluko.model;
 
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +11,8 @@ import java.util.Date;
 @Data
 @Entity
 public class Account {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
     private String email;
     private String password;
