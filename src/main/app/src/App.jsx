@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import styles from "./App.css";
 
 class App extends Component {
-    static render() {
+    render() {
         return (
             <div className={styles.container}>
                 <header className={styles.header}>
